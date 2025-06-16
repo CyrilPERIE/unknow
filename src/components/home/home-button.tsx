@@ -1,12 +1,17 @@
 import routes from "@/lib/routes/routes";
 import staticText from "@/lib/locales/fr/static-text";
-import NavButton from "@/components/generic/nav-button";
+import NavButton from "@/components/ui/nav-button";
 
 export default function HomeButton() {
-    const url = routes.home;
-    const text = staticText.home.title;
-    const variant = "ghost";
-    return (
-        <NavButton url={url} text={text} variant={variant} className="font-semibold underline"/>
-    )
+  const url = routes.home;
+  const text = staticText.home.title;
+  const variant = "ghost";
+  return (
+    <NavButton
+      url={url}
+      text={text}
+      variant={variant}
+      className="font-semibold underline"
+    />
+  );
 }
