@@ -1,4 +1,3 @@
-import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user/user-register-credentials-schema";
 import { UserSchemaType } from "@/domain/entities/user/user-schema";
 import { SafeParseReturnType } from "zod";
 
