@@ -6,7 +6,6 @@ import {
   userRegisterCredentialsSchema,
   UserRegisterCredentialsSchemaType,
 } from "@/domain/entities/user/user-register-credentials-schema";
-import RegisterCredentialsActionButton from "@/components/register/register-credentials-form-submit-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";

@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import { UseFormReturn } from "react-hook-form";
 import { UserCredentialsLoginSchema } from "@/domain/entities/user/user-login-schema";
 import { loginCredentialsAction } from "@/server/actions/auth/login-credentials-action";
-
-import { authClient } from "@/utils/auth-client";
 import { useRouter } from "next/navigation";
 
 export default function LoginCredentialsFormSubmitButton({
@@ -20,8 +18,8 @@ export default function LoginCredentialsFormSubmitButton({
       if (res.error) {
         console.error(res.error);
       }
-      if (res.data) {
-        res?.data?.url && router.push(res.data.url);
+      if (res.data && res.data.url) {
+        router.push(res.data.url);
       }
     });
   };
