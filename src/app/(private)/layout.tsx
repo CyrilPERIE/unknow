@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useUser } from "@/app/hooks/user/use-user";
 import { useRouter } from "next/navigation";
 import routes from "@/lib/routes/routes";
@@ -12,23 +13,15 @@ export default function PrivateLayout({
   const { session, isPending, error } = useUser();
   const router = useRouter();
 
-  if (error) {
-    return router.push(routes.login);
-  }
+  useEffect(() => {
+    if (error || (!isPending && !session?.user)) {
+      router.push(routes.login);
+    }
+  }, [error, isPending, session, router]);
 
-  if (isPending) {
+  if (isPending || (!isPending && !session?.user)) {
     return null;
   }
 
-  if (!isPending && !session?.user) {
-    return router.push(routes.login);
-  }
-
-  if (!session?.user) {
-    return null;
-  }
-
-  if (session.user) {
-    return <div>{children}</div>;
-  }
+  return <div>{children}</div>;
 }

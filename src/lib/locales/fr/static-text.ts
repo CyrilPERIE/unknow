@@ -9,6 +9,9 @@ const staticText = {
     login: {
         title: "Connexion",
     },
+    logout: {
+        title: "Déconnexion",
+    },
     register: {
         title: "Inscription",
     },
