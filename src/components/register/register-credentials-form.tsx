@@ -1,34 +1,19 @@
 "use client";
 
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import {
   defaultValuesUserRegisterCredentials,
   userRegisterCredentialsSchema,
   UserRegisterCredentialsSchemaType,
 } from "@/domain/entities/user/user-register-credentials-schema";
-import RegisterCredentialsActionButton from "@/components/register/register-credentials-action-button";
+import RegisterCredentialsActionButton from "@/components/register/register-credentials-form-submit-button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
+import { FormField, FormFieldType } from "@/components/ui/form-field";
+import RegisterCredentialsFormSubmitButton from "@/components/register/register-credentials-form-submit-button";
 
-type FormField = {
-  name: keyof UserRegisterCredentialsSchemaType;
-  label: string;
-  placeholder: string;
-  description?: string;
-  type?: string;
-};
-
-const formFields: FormField[] = [
+const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
   {
     name: "email",
     label: staticText.user.placeholders.email,
@@ -64,31 +49,9 @@ export default function RegisterCredentialsForm() {
   return (
     <Form {...form}>
       {formFields.map((_field, index) => {
-        return (
-          <FormField
-            key={index}
-            control={form.control}
-            name={_field.name}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{_field.label}</FormLabel>
-                <FormControl>
-                  <Input
-                    type={_field.type}
-                    placeholder={staticText.user.placeholders.name}
-                    {...field}
-                  />
-                </FormControl>
-                {_field.description && (
-                  <FormDescription>{_field.description}</FormDescription>
-                )}
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        );
+        return <FormField key={index} _field={_field} form={form} />;
       })}
-      <RegisterCredentialsActionButton form={form} />
+      <RegisterCredentialsFormSubmitButton form={form} />
     </Form>
   );
 }

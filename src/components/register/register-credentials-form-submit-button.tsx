@@ -3,15 +3,15 @@
 import staticText from "@/lib/locales/fr/static-text";
 import { Button } from "@/components/ui/button";
 import { UseFormReturn } from "react-hook-form";
-import { UserRegisterSchemaType } from "@/domain/entities/user/user-register-credentials-schema";
+import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user/user-register-credentials-schema";
 import { signupCredentialsAction } from "@/server/actions/auth/signup-credentials-action";
 
-export default function RegisterCredentialsActionButton({
+export default function RegisterCredentialsFormSubmitButton({
   form,
 }: {
-  form: UseFormReturn<UserRegisterSchemaType>;
+  form: UseFormReturn<UserRegisterCredentialsSchemaType>;
 }) {
-  const onSubmit = (data: UserRegisterSchemaType) => {
+  const onSubmit = (data: UserRegisterCredentialsSchemaType) => {
     signupCredentialsAction(data).then((res) => {
       if (res.error) {
         console.error(res.error);

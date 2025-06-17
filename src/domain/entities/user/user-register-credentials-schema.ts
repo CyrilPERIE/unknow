@@ -1,6 +1,6 @@
 import { z } from "zod";
 import staticText from "@/lib/locales/fr/static-text";
-import { UserSchema } from "./user-schema";
+import { UserSchema } from "@/domain/entities/user/user-schema";
 
 export const userRegisterCredentialsSchema = UserSchema.pick({
   email: true,
