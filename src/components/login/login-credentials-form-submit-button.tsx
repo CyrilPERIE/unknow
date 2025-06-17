@@ -6,17 +6,22 @@ import { UseFormReturn } from "react-hook-form";
 import { UserCredentialsLoginSchema } from "@/domain/entities/user/user-login-schema";
 import { loginCredentialsAction } from "@/server/actions/auth/login-credentials-action";
 
+import { authClient } from "@/utils/auth-client";
+import { useRouter } from "next/navigation";
+
 export default function LoginCredentialsFormSubmitButton({
   form,
 }: {
   form: UseFormReturn<UserCredentialsLoginSchema>;
 }) {
+  const router = useRouter();
   const onSubmit = (data: UserCredentialsLoginSchema) => {
     loginCredentialsAction(data).then((res) => {
       if (res.error) {
         console.error(res.error);
-      } else {
-        console.log(res.data);
+      }
+      if (res.data) {
+        res?.data?.url && router.push(res.data.url);
       }
     });
   };
