@@ -1,5 +1,3 @@
-import { auth } from "@/utils/auth";
-
 const staticText = {
     metadata: {
         title: "Unknow",

@@ -12,7 +12,7 @@ export async function signupCredentialsAction(
   formData: UserRegisterCredentialsSchemaType
 ) {
   const parsedFormData = userRegisterCredentialsSchema.safeParse(formData);
-  
+
   if (!parsedFormData.success) {
     return { error: parsedFormData.error.message };
   }
