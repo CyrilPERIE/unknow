@@ -12,6 +12,10 @@ const staticText = {
     login: {
         title: "Connexion",
     },
+    passwordForgotten: {
+        title: "Mot de passe oublié",
+        backToLogin: "Retour à la connexion",
+    },
     logout: {
         title: "Déconnexion",
     },
