@@ -15,6 +15,7 @@ const staticText = {
     passwordForgotten: {
         title: "Mot de passe oublié",
         backToLogin: "Retour à la connexion",
+        buttonSubmitText: "Réinitialiser le mot de passe",
     },
     logout: {
         title: "Déconnexion",

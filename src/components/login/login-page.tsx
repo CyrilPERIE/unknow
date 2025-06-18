@@ -3,7 +3,7 @@
 import staticText from "@/lib/locales/fr/static-text";
 import LoginCredentialsForm from "@/components/login/login-credentials-form";
 import { useState } from "react";
-import PasswordForgottenForm from "@/components/login/password-forgotten-form";
+import PasswordResetForm from "@/components/password/password-reset-form";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
@@ -16,7 +16,7 @@ export default function LoginPage() {
     : staticText.login.title;
 
   const Form = showForgotPasswordForm
-    ? PasswordForgottenForm
+    ? PasswordResetForm
     : LoginCredentialsForm;
 
   const buttonText = showForgotPasswordForm

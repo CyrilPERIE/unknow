@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
-import { sendVerificationEmail } from "@/lib/email";
+import { sendResetPasswordEmail, sendVerificationEmail } from "@/lib/email";
 import { UserEmailSchemaType } from "@/domain/entities/user";
 import routes from "@/lib/routes/routes";
 
@@ -35,12 +35,18 @@ export const auth = betterAuth({
     requireEmailVerification: true,
     minPasswordLength: 8,
     maxPasswordLength: 128,
-    // sendResetPassword: async ({ user, url, token }, request) => {
-    //     await sendEmail({
-    //         to: user.email,
-    //         subject: 'Reset your password',
-    //         text: `Click the link to reset your password: ${url}`
-    //     })
-    // }
+    sendResetPassword: async ({ user, url }) => {
+      const sender: UserEmailSchemaType = {
+        email: "cyril.perie96@gmail.com",
+        name: "Cyril Perie",
+      };
+      const to: UserEmailSchemaType[] = [
+        {
+          email: user.email,
+          name: user.name,
+        },
+      ];
+      await sendResetPasswordEmail(sender, to, url);
+    },
   },
 });

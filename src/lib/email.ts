@@ -2,6 +2,7 @@ import { UserEmailSchemaType } from "@/domain/entities/user";
 
 type TemplateParamsMap = {
   1: { URL: string };
+  2: { URL: string };
 };
 
 type EmailPayload<T extends keyof TemplateParamsMap> = {
@@ -50,4 +51,23 @@ const sendVerificationEmail = async (
   }
 };
 
-export { sendVerificationEmail };
+const sendResetPasswordEmail = async (
+  sender: UserEmailSchemaType,
+  to: UserEmailSchemaType[],
+  url: string
+) => {
+  const data: EmailPayload<2> = {
+    sender,
+    to,
+    templateId: 2,
+    params: {
+      URL: url,
+    },
+  };
+  const res = await sendEmail(data);
+  if (res.error) {
+    return { error: res.error };
+  }
+};
+
+export { sendVerificationEmail, sendResetPasswordEmail };
