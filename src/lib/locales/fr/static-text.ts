@@ -3,6 +3,9 @@ const staticText = {
         title: "Unknow",
         description: "I don't know what i want to do but i will do it the cleanest",
     },
+    dashboard: {
+        title: "Dashboard",
+    },
     home: {
         title: "Accueil",
     },

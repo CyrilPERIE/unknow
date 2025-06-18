@@ -5,7 +5,7 @@ import NavButton from "@/components/ui/nav-button";
 export default function HomeNavButton() {
   const url = routes.home;
   const text = staticText.home.title;
-  const variant = "ghost";
+  const variant = "outline";
   return (
     <NavButton
       url={url}

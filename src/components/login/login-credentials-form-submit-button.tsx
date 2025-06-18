@@ -6,6 +6,7 @@ import { UseFormReturn } from "react-hook-form";
 import { UserCredentialsLoginSchema } from "@/domain/entities/user/user-login-schema";
 import { loginCredentialsAction } from "@/server/actions/auth/login-credentials-action";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function LoginCredentialsFormSubmitButton({
   form,
@@ -16,7 +17,7 @@ export default function LoginCredentialsFormSubmitButton({
   const onSubmit = (data: UserCredentialsLoginSchema) => {
     loginCredentialsAction(data).then((res) => {
       if (res.error) {
-        console.error(res.error);
+        toast.error(res.error);
       }
       if (res.data && res.data.url) {
         router.push(res.data.url);
