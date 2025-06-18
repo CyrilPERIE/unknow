@@ -2,16 +2,16 @@
 
 import { authClient } from "@/utils/auth-client";
 import {
-  userRegisterCredentialsSchema,
+  UserRegisterCredentialsSchema,
   UserRegisterCredentialsSchemaType,
-} from "@/domain/entities/user/user-register-credentials-schema";
+} from "@/domain/entities/user";
 import staticText from "@/lib/locales/fr/static-text";
 import { UserRepository } from "@/server/repository/user";
 
 export async function signupCredentialsAction(
   formData: UserRegisterCredentialsSchemaType
 ) {
-  const parsedFormData = userRegisterCredentialsSchema.safeParse(formData);
+  const parsedFormData = UserRegisterCredentialsSchema.safeParse(formData);
 
   if (!parsedFormData.success) {
     return { error: parsedFormData.error.message };

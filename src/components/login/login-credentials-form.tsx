@@ -2,9 +2,9 @@
 
 import {
   defaultValuesUserLogin,
-  userCredentialsLoginSchema,
   UserCredentialsLoginSchema,
-} from "@/domain/entities/user/user-login-schema";
+  UserCredentialsLoginSchemaType,
+} from "@/domain/entities/user";
 import { FormField, FormFieldType } from "@/components/ui/form-field";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import LoginCredentialsFormSubmitButton from "@/components/login/login-credentials-form-submit-button";
 import { Form } from "@/components/ui/form";
 
-const formFields: FormFieldType<UserCredentialsLoginSchema>[] = [
+const formFields: FormFieldType<UserCredentialsLoginSchemaType>[] = [
   {
     name: "email",
     label: staticText.user.placeholders.email,
@@ -27,8 +27,8 @@ const formFields: FormFieldType<UserCredentialsLoginSchema>[] = [
 ];
 
 export default function LoginCredentialsForm() {
-  const form = useForm<UserCredentialsLoginSchema>({
-    resolver: zodResolver(userCredentialsLoginSchema),
+  const form = useForm<UserCredentialsLoginSchemaType>({
+    resolver: zodResolver(UserCredentialsLoginSchema),
     defaultValues: defaultValuesUserLogin,
   });
   return (

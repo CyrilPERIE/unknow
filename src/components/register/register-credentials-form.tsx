@@ -3,9 +3,9 @@
 import { Form } from "@/components/ui/form";
 import {
   defaultValuesUserRegisterCredentials,
-  userRegisterCredentialsSchema,
+  UserRegisterCredentialsSchema,
   UserRegisterCredentialsSchemaType,
-} from "@/domain/entities/user/user-register-credentials-schema";
+} from "@/domain/entities/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,7 @@ const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
 
 export default function RegisterCredentialsForm() {
   const form = useForm<UserRegisterCredentialsSchemaType>({
-    resolver: zodResolver(userRegisterCredentialsSchema),
+    resolver: zodResolver(UserRegisterCredentialsSchema),
     defaultValues: defaultValuesUserRegisterCredentials,
   });
   return (

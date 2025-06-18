@@ -1,4 +1,4 @@
-import { UserEmailSchemaType } from "@/domain/entities/user/user-email-schema";
+import { UserEmailSchemaType } from "@/domain/entities/user";
 
 type TemplateParamsMap = {
   1: { URL: string };

@@ -1,14 +1,14 @@
 import {
-  userCredentialsLoginSchema,
+  UserCredentialsLoginSchemaType,
   UserCredentialsLoginSchema,
-} from "@/domain/entities/user/user-login-schema";
+} from "@/domain/entities/user";
 import { authClient } from "@/utils/auth-client";
 import routes from "@/lib/routes/routes";
 
 export async function loginCredentialsAction(
-  formData: UserCredentialsLoginSchema
+  formData: UserCredentialsLoginSchemaType
 ) {
-  const safeData = userCredentialsLoginSchema.safeParse(formData);
+  const safeData = UserCredentialsLoginSchema.safeParse(formData);
   if (!safeData.success) {
     return {
       error: safeData.error.message,

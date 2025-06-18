@@ -2,7 +2,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
 import { sendVerificationEmail } from "@/lib/email";
-import { UserEmailSchemaType } from "@/domain/entities/user/user-email-schema";
+import { UserEmailSchemaType } from "@/domain/entities/user";
 import routes from "@/lib/routes/routes";
 
 const prisma = new PrismaClient();

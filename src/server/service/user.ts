@@ -1,4 +1,4 @@
-import { UserSchemaType } from "@/domain/entities/user/user-schema";
+import { UserSchemaType } from "@/domain/entities/user";
 import { SafeParseReturnType } from "zod";
 
 export interface UserService {

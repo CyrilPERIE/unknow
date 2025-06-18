@@ -3,7 +3,7 @@
 import staticText from "@/lib/locales/fr/static-text";
 import { Button } from "@/components/ui/button";
 import { UseFormReturn } from "react-hook-form";
-import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user/user-register-credentials-schema";
+import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user";
 import { signupCredentialsAction } from "@/server/actions/auth/signup-credentials-action";
 import { toast } from "sonner";
 

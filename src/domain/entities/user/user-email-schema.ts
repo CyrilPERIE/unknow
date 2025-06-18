@@ -1,9 +1,14 @@
 import { z } from "zod";
-import { UserSchema } from "@/domain/entities/user/user-schema";
+import { UserSchema } from "@/domain/entities/user";
 
-export const userEmailSchema = UserSchema.pick({
+export const UserEmailSchema = UserSchema.pick({
   email: true,
   name: true,
 });
 
-export type UserEmailSchemaType = z.infer<typeof userEmailSchema>;
+export type UserEmailSchemaType = z.infer<typeof UserEmailSchema>;
+
+export const defaultValuesUserEmail: UserEmailSchemaType = {
+  email: "",
+  name: "",
+};

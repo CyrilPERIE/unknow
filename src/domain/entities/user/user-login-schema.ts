@@ -1,14 +1,14 @@
-import { UserSchema } from "@/domain/entities/user/user-schema";
+import { UserSchema } from "@/domain/entities/user";
 import { z } from "zod";
 
-export const userCredentialsLoginSchema = UserSchema.pick({
+export const UserCredentialsLoginSchema = UserSchema.pick({
   email: true,
   password: true,
 });
 
-export const defaultValuesUserLogin: UserCredentialsLoginSchema = {
+export const defaultValuesUserLogin: UserCredentialsLoginSchemaType = {
   email: "",
   password: "",
 };
 
-export type UserCredentialsLoginSchema = z.infer<typeof userCredentialsLoginSchema>;
+export type UserCredentialsLoginSchemaType = z.infer<typeof UserCredentialsLoginSchema>;
