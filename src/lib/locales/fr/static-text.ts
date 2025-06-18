@@ -1,3 +1,5 @@
+import { auth } from "@/utils/auth";
+
 const staticText = {
     metadata: {
         title: "Unknow",
@@ -17,12 +19,13 @@ const staticText = {
     },
     register: {
         title: "Inscription",
+        register_success: "Email envoyé, veuillez vérifier votre boîte de réception",
     },
     user: {
         zod_error_messages: {
             email_invalid: "L'email est invalide",
-            password_min: "Le mot de passe doit contenir au moins 8 caractères",
-            password_max: "Le mot de passe doit contenir au plus 128 caractères",
+            password_min: (minLength: number) => `Le mot de passe doit contenir au moins ${minLength} caractères`,
+            password_max: (maxLength: number) => `Le mot de passe doit contenir au plus ${maxLength} caractères`,
             name_required: "Le nom est requis",
             password_confirmation_invalid: "Les mots de passe ne correspondent pas",
         },

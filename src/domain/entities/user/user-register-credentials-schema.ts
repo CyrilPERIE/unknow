@@ -9,10 +9,7 @@ export const userRegisterCredentialsSchema = UserSchema.pick({
   image: true,
 })
   .extend({
-    passwordConfirmation: z
-      .string()
-      .min(8, { message: staticText.user.zod_error_messages.password_min })
-      .max(128, { message: staticText.user.zod_error_messages.password_max }),
+    passwordConfirmation: UserSchema.shape.password,
   })
   .refine((data) => data.password === data.passwordConfirmation, {
     message: staticText.user.zod_error_messages.password_confirmation_invalid,

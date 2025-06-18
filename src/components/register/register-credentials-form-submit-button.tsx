@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { UseFormReturn } from "react-hook-form";
 import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user/user-register-credentials-schema";
 import { signupCredentialsAction } from "@/server/actions/auth/signup-credentials-action";
+import { toast } from "sonner";
 
 export default function RegisterCredentialsFormSubmitButton({
   form,
@@ -16,7 +17,7 @@ export default function RegisterCredentialsFormSubmitButton({
       if (res.error) {
         console.error(res.error);
       } else {
-        console.log(res.data);
+        toast.success(staticText.register.register_success);
       }
     });
   };
