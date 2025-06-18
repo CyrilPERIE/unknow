@@ -9,19 +9,19 @@ import { cn } from "@/lib/utils";
 
 type NavButtonProps = {
     url: typeof routes[keyof typeof routes];
-    text: string;
+    children: React.ReactNode;
     variant?: VariantProps<typeof buttonVariants>["variant"];
     className?: string;
 }
 
-export default function NavButton({ url, text, variant = "default", className }: NavButtonProps) {
+export default function NavButton({ url, children, variant = "default", className }: NavButtonProps) {
     const pathname = usePathname();
     const isActive = pathname === url;
     if (isActive) return null;
 
     return (
         <Link href={url}>
-            <Button variant={variant} className={cn(className, "cursor-pointer")}>{text}</Button>
+            <Button variant={variant} className={cn(className, "cursor-pointer")}>{children}</Button>
         </Link>
     )
 }

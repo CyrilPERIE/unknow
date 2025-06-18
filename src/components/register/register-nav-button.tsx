@@ -4,7 +4,5 @@ import NavButton from "@/components/ui/nav-button";
 
 export default function RegisterNavButton() {
   const url = routes.register;
-  const text = staticText.register.title;
-  const variant = "outline";
-  return <NavButton url={url} text={text} variant={variant} />;
+  return <NavButton url={url}>{staticText.register.title}</NavButton>;
 }

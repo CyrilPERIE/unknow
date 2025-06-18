@@ -4,7 +4,5 @@ import routes from "@/lib/routes/routes";
 
 export default function DashboardNavButton() {
   const url = routes.dashboard;
-  const text = staticText.dashboard.title;
-  const variant = "outline";
-  return <NavButton url={url} text={text} variant={variant} />;
+  return <NavButton url={url}>{staticText.dashboard.title}</NavButton>;
 }
