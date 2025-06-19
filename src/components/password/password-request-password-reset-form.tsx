@@ -17,6 +17,7 @@ const formFields: FormFieldType<UserRequestPasswordResetSchemaType>[] = [
     name: "email",
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
+    type: "email",
   },
 ];
 

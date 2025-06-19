@@ -18,11 +18,13 @@ const formFields: FormFieldType<UserUpdatePasswordSchemaType>[] = [
     name: "password",
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
+    type: "password",
   },
   {
     name: "passwordConfirmation",
     label: staticText.user.placeholders.password_confirmation,
     placeholder: staticText.user.placeholders.password_confirmation,
+    type: "password",
   },
 ];
 

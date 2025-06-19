@@ -17,6 +17,7 @@ const formFields: FormFieldType<UserCredentialsLoginSchemaType>[] = [
     name: "email",
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
+    type: "email",
   },
   {
     name: "password",
