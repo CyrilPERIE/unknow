@@ -5,7 +5,7 @@ import {
   UserCredentialsLoginSchema,
   UserCredentialsLoginSchemaType,
 } from "@/domain/entities/user";
-import { FormField, FormFieldType } from "@/components/ui/form-field";
+import { FormField, FormFieldType } from "@/components/ui/custom/form";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

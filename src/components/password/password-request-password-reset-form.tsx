@@ -5,7 +5,7 @@ import {
   UserRequestPasswordResetSchema,
   UserRequestPasswordResetSchemaType,
 } from "@/domain/entities/user";
-import { FormField, FormFieldType } from "@/components/ui/form-field";
+import { FormField, FormFieldType } from "@/components/ui/custom/form";
 import staticText from "@/lib/locales/fr/static-text";
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";

@@ -9,7 +9,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
-import { FormField, FormFieldType } from "@/components/ui/form-field";
+import { FormField, FormFieldType } from "@/components/ui/custom/form";
 import RegisterCredentialsFormSubmitButton from "@/components/register/register-credentials-form-submit-button";
 
 const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
