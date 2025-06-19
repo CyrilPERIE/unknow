@@ -18,12 +18,14 @@ const formFields: FormFieldType<UserCredentialsLoginSchemaType>[] = [
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
     type: "email",
+    className: "mb-4 w-full",
   },
   {
     name: "password",
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
     type: "password",
+    className: "mb-4 w-full",
   },
 ];
 
@@ -37,7 +39,7 @@ export default function LoginCredentialsForm() {
       {formFields.map((_field, index) => {
         return <FormField key={index} _field={_field} form={form} />;
       })}
-      <LoginCredentialsFormSubmitButton form={form} />
+      <LoginCredentialsFormSubmitButton form={form} className="w-full mb-4" />
     </Form>
   );
 }

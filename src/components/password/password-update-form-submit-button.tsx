@@ -11,11 +11,13 @@ import routes from "@/lib/routes/routes";
 type PasswordUpdateFormSubmitButtonProps = {
   form: UseFormReturn<UserUpdatePasswordSchemaType>;
   token: string | null;
+  className?: string;
 };
 
 export default function PasswordUpdateFormSubmitButton({
   form,
   token,
+  className,  
 }: PasswordUpdateFormSubmitButtonProps) {
   const router = useRouter();
   const onSubmit = (data: UserUpdatePasswordSchemaType) => {
@@ -34,7 +36,7 @@ export default function PasswordUpdateFormSubmitButton({
     });
   };
   return (
-    <Button type="submit" onClick={form.handleSubmit(onSubmit)}>
+    <Button type="submit" onClick={form.handleSubmit(onSubmit)} className={className}>
       {staticText.passwordForgotten.buttonSubmitText}
       {form.formState.isSubmitting && <Loader2 className="w-4 h-4 ml-2" />}
     </Button>

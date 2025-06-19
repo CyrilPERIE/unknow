@@ -19,12 +19,14 @@ const formFields: FormFieldType<UserUpdatePasswordSchemaType>[] = [
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
     type: "password",
+    className: "mb-4 w-full",
   },
   {
     name: "passwordConfirmation",
     label: staticText.user.placeholders.password_confirmation,
     placeholder: staticText.user.placeholders.password_confirmation,
     type: "password",
+    className: "mb-4 w-full",
   },
 ];
 
@@ -36,13 +38,15 @@ export default function PasswordUpdateForm() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   return (
-    <div>
-      <Form {...form}>
-        {formFields.map((_field, index) => {
-          return <FormField key={index} _field={_field} form={form} />;
-        })}
-        <PasswordUpdateFormSubmitButton form={form} token={token} />
-      </Form>
-    </div>
+    <Form {...form}>
+      {formFields.map((_field, index) => {
+        return <FormField key={index} _field={_field} form={form} />;
+      })}
+      <PasswordUpdateFormSubmitButton
+        form={form}
+        token={token}
+        className="w-full"
+      />
+    </Form>
   );
 }

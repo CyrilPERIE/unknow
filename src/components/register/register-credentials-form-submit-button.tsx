@@ -7,11 +7,15 @@ import { UserRegisterCredentialsSchemaType } from "@/domain/entities/user";
 import { signupCredentialsAction } from "@/server/actions/auth/signup-credentials-action";
 import { toast } from "sonner";
 
+type RegisterCredentialsFormSubmitButtonProps = {
+  form: UseFormReturn<UserRegisterCredentialsSchemaType>;
+  className?: string;
+};
+
 export default function RegisterCredentialsFormSubmitButton({
   form,
-}: {
-  form: UseFormReturn<UserRegisterCredentialsSchemaType>;
-}) {
+  className,
+}: RegisterCredentialsFormSubmitButtonProps) {
   const onSubmit = (data: UserRegisterCredentialsSchemaType) => {
     signupCredentialsAction(data).then((res) => {
       if (res.error) {
@@ -23,7 +27,7 @@ export default function RegisterCredentialsFormSubmitButton({
   };
 
   return (
-    <Button type="submit" onClick={form.handleSubmit(onSubmit)}>
+    <Button type="submit" onClick={form.handleSubmit(onSubmit)} className={className}>
       {staticText.register.title}
     </Button>
   );

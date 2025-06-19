@@ -7,10 +7,12 @@ import { requestPasswordResetAction } from "@/server/actions/auth/request-passwo
 
 type PasswordRequestPasswordResetFormSubmitButtonProps = {
   form: UseFormReturn<UserRequestPasswordResetSchemaType>;
+  className?: string;
 };
 
 export default function PasswordRequestPasswordResetFormSubmitButton({
   form,
+  className,
 }: PasswordRequestPasswordResetFormSubmitButtonProps) {
   const onSubmit = (data: UserRequestPasswordResetSchemaType) => {
     requestPasswordResetAction(data).then((res) => {
@@ -24,7 +26,7 @@ export default function PasswordRequestPasswordResetFormSubmitButton({
   };
 
   return (
-    <Button type="submit" onClick={form.handleSubmit(onSubmit)}>
+    <Button type="submit" onClick={form.handleSubmit(onSubmit)} className={className}>
       {staticText.passwordForgotten.buttonSubmitText}
     </Button>
   );

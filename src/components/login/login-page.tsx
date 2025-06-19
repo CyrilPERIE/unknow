@@ -24,10 +24,12 @@ export default function LoginPage() {
     : staticText.passwordForgotten.title;
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-2xl font-bold">{title}</h1>
+    <div className="flex flex-col items-center justify-center h-screen max-w-96 mx-auto ">
+      <h1 className="text-2xl font-bold mb-4">{title}</h1>
       <Form />
-      <Button onClick={toggleForm}>{buttonText}</Button>
+      <Button onClick={toggleForm} className="w-full">
+        {buttonText}
+      </Button>
     </div>
   );
 }

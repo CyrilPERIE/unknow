@@ -1,4 +1,4 @@
-import { Path, UseFormReturn } from "react-hook-form";
+import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 import {
   FormControl,
   FormDescription,
@@ -15,21 +15,24 @@ export type FormFieldType<T> = {
   placeholder: string;
   description?: string;
   type?: string;
+  className?: string;
 };
 
-export const FormField = <T extends object>({
-  _field,
-  form,
-}: {
+type FormFieldProps<T extends FieldValues> = {
   _field: FormFieldType<T>;
   form: UseFormReturn<T>;
-}) => {
+};
+
+export const FormField = <T extends FieldValues>({
+  _field,
+  form
+}: FormFieldProps<T>) => {
   return (
     <_FormField
       control={form.control}
       name={_field.name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={_field.className}>
           <FormLabel>{_field.label}</FormLabel>
           <FormControl>
             <Input

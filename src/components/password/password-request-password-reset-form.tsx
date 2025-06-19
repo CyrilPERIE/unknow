@@ -18,6 +18,7 @@ const formFields: FormFieldType<UserRequestPasswordResetSchemaType>[] = [
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
     type: "email",
+    className: "mb-4 w-full",
   },
 ];
 
@@ -31,7 +32,7 @@ export default function PasswordRequestPasswordResetForm() {
       {formFields.map((_field, index) => {
         return <FormField key={index} _field={_field} form={form} />;
       })}
-      <PasswordRequestPasswordResetFormSubmitButton form={form} />
+      <PasswordRequestPasswordResetFormSubmitButton form={form} className="w-full mb-4" />
     </Form>
   );
 }

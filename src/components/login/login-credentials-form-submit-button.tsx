@@ -8,11 +8,15 @@ import { loginCredentialsAction } from "@/server/actions/auth/login-credentials-
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+type LoginCredentialsFormSubmitButtonProps = {
+  form: UseFormReturn<UserCredentialsLoginSchemaType>;
+  className?: string;
+};
+
 export default function LoginCredentialsFormSubmitButton({
   form,
-}: {
-  form: UseFormReturn<UserCredentialsLoginSchemaType>;
-}) {
+  className,
+}: LoginCredentialsFormSubmitButtonProps) {
   const router = useRouter();
   const onSubmit = (data: UserCredentialsLoginSchemaType) => {
     loginCredentialsAction(data).then((res) => {
@@ -26,7 +30,7 @@ export default function LoginCredentialsFormSubmitButton({
   };
 
   return (
-    <Button type="submit" onClick={form.handleSubmit(onSubmit)}>
+    <Button type="submit" onClick={form.handleSubmit(onSubmit)} className={className}>
       {staticText.login.title}
     </Button>
   );

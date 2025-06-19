@@ -1,9 +1,5 @@
-import PasswordUpdateForm from "@/components/password/password-update-form";
+import PasswordUpdatePage from "@/components/password/password-update-page";
 
 export default function ResetPasswordPage() {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <PasswordUpdateForm />
-    </div>
-  );
+  return <PasswordUpdatePage />;
 }
