@@ -16,6 +16,8 @@ const staticText = {
         title: "Mot de passe oublié",
         backToLogin: "Retour à la connexion",
         buttonSubmitText: "Réinitialiser le mot de passe",
+        errorTokenNotFound: "Token invalide",
+        success: "Mot de passe mis à jour",
     },
     logout: {
         title: "Déconnexion",

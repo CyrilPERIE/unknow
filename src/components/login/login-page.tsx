@@ -3,7 +3,7 @@
 import staticText from "@/lib/locales/fr/static-text";
 import LoginCredentialsForm from "@/components/login/login-credentials-form";
 import { useState } from "react";
-import PasswordResetForm from "@/components/password/password-reset-form";
+import PasswordResetForm from "@/components/password/password-request-password-reset-form";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {

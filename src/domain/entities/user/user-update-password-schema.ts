@@ -9,6 +9,11 @@ export const UserUpdatePasswordSchema = UserRegisterCredentialsSchema._def.schem
   })
   .superRefine((data, ctx) => arePasswordsEqualSuperRefine(ctx, data));
 
+export const defaultValuesUserUpdatePassword: UserUpdatePasswordSchemaType = {
+  password: "",
+  passwordConfirmation: "",
+};
+
 export type UserUpdatePasswordSchemaType = z.infer<
   typeof UserUpdatePasswordSchema
 >;

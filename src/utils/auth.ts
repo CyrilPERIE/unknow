@@ -4,6 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { sendResetPasswordEmail, sendVerificationEmail } from "@/lib/email";
 import { UserEmailSchemaType } from "@/domain/entities/user";
 import routes from "@/lib/routes/routes";
+import { env } from "process";
 
 const prisma = new PrismaClient();
 export const auth = betterAuth({
@@ -12,8 +13,8 @@ export const auth = betterAuth({
     autoSignInAfterVerification: true,
     sendVerificationEmail: async ({ user, url }) => {
       const sender: UserEmailSchemaType = {
-        email: "cyril.perie96@gmail.com",
-        name: "Cyril Perie",
+        email: env.BREVO_SENDER_EMAIL!,
+        name: env.BREVO_SENDER_NAME!,
       };
       const to: UserEmailSchemaType[] = [
         {
@@ -37,8 +38,8 @@ export const auth = betterAuth({
     maxPasswordLength: 128,
     sendResetPassword: async ({ user, url }) => {
       const sender: UserEmailSchemaType = {
-        email: "cyril.perie96@gmail.com",
-        name: "Cyril Perie",
+        email: env.BREVO_SENDER_EMAIL!,
+        name: env.BREVO_SENDER_NAME!,
       };
       const to: UserEmailSchemaType[] = [
         {
