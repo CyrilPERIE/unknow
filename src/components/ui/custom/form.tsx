@@ -10,6 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 type FormFieldType<T> = {
   name: Path<T>;
@@ -34,7 +35,7 @@ const FormField = <T extends FieldValues>({
       control={form.control}
       name={_field.name}
       render={({ field }) => (
-        <FormItem className={_field.className}>
+        <FormItem className={cn(_field.className, "mb-4 w-full")}>
           <FormLabel>{_field.label}</FormLabel>
           <FormControl>
             <Input

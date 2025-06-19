@@ -17,15 +17,13 @@ const formFields: FormFieldType<UserCredentialsLoginSchemaType>[] = [
     name: "email",
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
-    type: "email",
-    className: "mb-4 w-full",
+    type: "email"
   },
   {
     name: "password",
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
-    type: "password",
-    className: "mb-4 w-full",
+    type: "password"
   },
 ];
 

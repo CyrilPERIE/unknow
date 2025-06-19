@@ -17,22 +17,19 @@ const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
     name: "email",
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
-    type: "email",
-    className: "mb-4 w-full",
+    type: "email"
   },
   {
     name: "password",
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
     type: "password",
-    className: "mb-4 w-full",
   },
   {
     name: "passwordConfirmation",
     label: staticText.user.placeholders.password_confirmation,
     placeholder: staticText.user.placeholders.password_confirmation,
     type: "password",
-    className: "mb-4 w-full",
   },
   {
     name: "name",
@@ -40,7 +37,6 @@ const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
     placeholder: staticText.user.placeholders.name,
     description: staticText.user.descriptions.name,
     type: "text",
-    className: "mb-4 w-full",
   },
 ];
 

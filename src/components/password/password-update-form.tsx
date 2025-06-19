@@ -2,7 +2,7 @@
 
 import PasswordUpdateFormSubmitButton from "@/components/password/password-update-form-submit-button";
 import staticText from "@/lib/locales/fr/static-text";
-import { FormField, FormFieldType } from "../ui/form-field";
+import { FormField, FormFieldType } from "@/components/ui/custom/form";
 import {
   defaultValuesUserUpdatePassword,
   UserUpdatePasswordSchema,
@@ -18,15 +18,13 @@ const formFields: FormFieldType<UserUpdatePasswordSchemaType>[] = [
     name: "password",
     label: staticText.user.placeholders.password,
     placeholder: staticText.user.placeholders.password,
-    type: "password",
-    className: "mb-4 w-full",
+    type: "password"
   },
   {
     name: "passwordConfirmation",
     label: staticText.user.placeholders.password_confirmation,
     placeholder: staticText.user.placeholders.password_confirmation,
-    type: "password",
-    className: "mb-4 w-full",
+    type: "password"
   },
 ];
 
