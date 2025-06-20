@@ -16,7 +16,8 @@ export const UserSchema = z.object({
     .max(MAX_PASSWORD_LENGTH, { message: staticText.user.zod_error_messages.password_max(MAX_PASSWORD_LENGTH) }),
   name: z
     .string()
-    .min(1, { message: staticText.user.zod_error_messages.name_required }),
+    .min(1, { message: staticText.user.zod_error_messages.name_required })
+    .max(20, { message: staticText.user.zod_error_messages.name_max(20)}),
   emailVerified: z.boolean().optional(),
   image: z.string().optional(),
 });

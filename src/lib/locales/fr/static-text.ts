@@ -18,6 +18,7 @@ const staticText = {
         buttonSubmitText: "Réinitialiser le mot de passe",
         errorTokenNotFound: "Token invalide",
         success: "Mot de passe mis à jour",
+        requestPasswordResetSuccess: "Email envoyé, veuillez vérifier votre boîte de réception",
     },
     logout: {
         title: "Déconnexion",
@@ -32,10 +33,12 @@ const staticText = {
             password_min: (minLength: number) => `Le mot de passe doit contenir au moins ${minLength} caractères`,
             password_max: (maxLength: number) => `Le mot de passe doit contenir au plus ${maxLength} caractères`,
             name_required: "Le nom est requis",
+            name_max: (maxLength: number) => `Le nom doit contenir au plus ${maxLength} caractères`,
             password_confirmation_invalid: "Les mots de passe ne correspondent pas",
         },
         errors: {
-            email_already_exists: "L'email existe déjà",
+            email_already_exists: "Cet email est déjà utilisé",
+            name_already_exists: "Ce nom est déjà utilisé",
         },
         placeholders: {
             email: "Email",

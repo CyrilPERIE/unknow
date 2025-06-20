@@ -30,6 +30,13 @@ export async function signupCredentialsAction(
   if (user.success) {
     return { error: staticText.user.errors.email_already_exists };
   }
+  
+  const userByName = await userRepository.getByName(parsedFormData.data.name);
+  console.log("userByName ", userByName.error);
+  if (userByName.success) {
+    console.log("LA");
+    return { error: staticText.user.errors.name_already_exists };
+  }
 
   const { data, error } = await authClient.signUp.email(parsedFormData.data);
   if (error) {
