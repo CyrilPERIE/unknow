@@ -25,7 +25,12 @@ const formFields: FormFieldType<UserRequestPasswordResetSchemaType>[] = [
   },
 ];
 
-export default function PasswordRequestPasswordResetForm() {
+
+type PasswordRequestPasswordResetFormProps = {
+  className?: string;
+};
+
+export default function PasswordRequestPasswordResetForm({className}: PasswordRequestPasswordResetFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<UserRequestPasswordResetSchemaType>({
     resolver: zodResolver(UserRequestPasswordResetSchema),
@@ -46,7 +51,7 @@ export default function PasswordRequestPasswordResetForm() {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
       {formFields.map((_field, index) => {
         return <FormField key={index} _field={_field} form={form} />;
       })}

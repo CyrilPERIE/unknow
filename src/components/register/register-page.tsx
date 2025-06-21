@@ -5,7 +5,7 @@ export default function RegisterPage() {
     return (
         <div className="flex flex-col items-center justify-center h-screen max-w-96 mx-auto">
             <h1 className="text-2xl font-bold mb-4">{staticText.register.title}</h1>
-            <RegisterCredentialsForm />
+            <RegisterCredentialsForm className="w-full" />
         </div>
     )
 }

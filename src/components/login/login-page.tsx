@@ -26,7 +26,7 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen max-w-96 mx-auto ">
       <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      <Form />
+      <Form className="w-full" />
       <Button onClick={toggleForm} className="w-full">
         {buttonText}
       </Button>

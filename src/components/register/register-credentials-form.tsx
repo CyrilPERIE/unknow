@@ -44,7 +44,11 @@ const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
   },
 ];
 
-export default function RegisterCredentialsForm() {
+type RegisterCredentialsFormProps = {
+  className?: string;
+};
+
+export default function RegisterCredentialsForm({className}: RegisterCredentialsFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<UserRegisterCredentialsSchemaType>({
     resolver: zodResolver(UserRegisterCredentialsSchema),
@@ -68,7 +72,7 @@ export default function RegisterCredentialsForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
         {formFields.map((_field, index) => {
           return <FormField key={index} _field={_field} form={form} />;
         })}

@@ -32,7 +32,11 @@ const formFields: FormFieldType<UserCredentialsLoginSchemaType>[] = [
   },
 ];
 
-export default function LoginCredentialsForm() {
+type LoginCredentialsFormProps = {
+  className?: string;
+};
+
+export default function LoginCredentialsForm({className}: LoginCredentialsFormProps) {
   const form = useForm<UserCredentialsLoginSchemaType>({
     resolver: zodResolver(UserCredentialsLoginSchema),
     defaultValues: defaultValuesUserLogin,
@@ -55,7 +59,7 @@ export default function LoginCredentialsForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
         {formFields.map((_field) => {
           return <FormField key={_field.name} _field={_field} form={form} />;
         })}

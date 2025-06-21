@@ -34,7 +34,11 @@ const formFields: FormFieldType<UserUpdatePasswordSchemaType>[] = [
   },
 ];
 
-export default function PasswordUpdateForm() {
+type PasswordUpdateFormProps = {
+  className?: string;
+};
+
+export default function PasswordUpdateForm({className}: PasswordUpdateFormProps) {
   const form = useForm<UserUpdatePasswordSchemaType>({
     resolver: zodResolver(UserUpdatePasswordSchema),
     defaultValues: defaultValuesUserUpdatePassword,
@@ -68,7 +72,7 @@ export default function PasswordUpdateForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
         {formFields.map((_field, index) => {
           return <FormField key={index} _field={_field} form={form} />;
         })}
