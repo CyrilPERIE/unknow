@@ -1,4 +1,3 @@
-import { Form as _Form } from "@/components/ui/form";
 import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 
 import {
@@ -28,7 +27,7 @@ type FormFieldProps<T extends FieldValues> = {
 
 const FormField = <T extends FieldValues>({
   _field,
-  form
+  form,
 }: FormFieldProps<T>) => {
   return (
     <_FormField
@@ -54,34 +53,4 @@ const FormField = <T extends FieldValues>({
   );
 };
 
-
-type FormProps<T extends FieldValues> = {
-  formFieds: FormFieldType<T>[];
-  form: UseFormReturn<T>;
-  ActionButton: React.FC<{ form: UseFormReturn<T>; className?: string }>;
-  className?: string;
-};
-
-function Form<T extends FieldValues>({
-  formFieds,
-  form,
-  ActionButton,
-  className,
-}: FormProps<T>) {
-  return (
-    <div className={className}>
-      <_Form {...form}>
-        {formFieds.map((_field, index) => {
-          return <FormField key={index} _field={_field} form={form} />;
-        })}
-        <ActionButton form={form} className="w-full" />
-      </_Form>
-    </div>
-  );
-}
-
-export { 
-    Form,
-    FormField,
-    type FormFieldType,
-};
+export { FormField, type FormFieldType };

@@ -10,14 +10,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import staticText from "@/lib/locales/fr/static-text";
 import { useForm } from "react-hook-form";
 import { FormField, FormFieldType } from "@/components/ui/custom/form";
-import RegisterCredentialsFormSubmitButton from "@/components/register/register-credentials-form-submit-button";
+import { useState } from "react";
+import { signupCredentialsAction } from "@/server/actions/auth/signup-credentials-action";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
   {
     name: "email",
     label: staticText.user.placeholders.email,
     placeholder: staticText.user.placeholders.email,
-    type: "email"
+    type: "email",
   },
   {
     name: "password",
@@ -41,16 +45,41 @@ const formFields: FormFieldType<UserRegisterCredentialsSchemaType>[] = [
 ];
 
 export default function RegisterCredentialsForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<UserRegisterCredentialsSchemaType>({
     resolver: zodResolver(UserRegisterCredentialsSchema),
     defaultValues: defaultValuesUserRegisterCredentials,
   });
+
+  const onSubmit = (data: UserRegisterCredentialsSchemaType) => {
+    setIsLoading(true);
+    signupCredentialsAction(data)
+      .then((res) => {
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          toast.success(staticText.register.register_success);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <Form {...form}>
-      {formFields.map((_field, index) => {
-        return <FormField key={index} _field={_field} form={form} />;
-      })}
-      <RegisterCredentialsFormSubmitButton form={form} className="w-full" />
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        {formFields.map((_field, index) => {
+          return <FormField key={index} _field={_field} form={form} />;
+        })}
+        <Button type="submit" className="w-full mb-4" disabled={isLoading}>
+          {isLoading ? (
+            <Loader2 className="w-4 h-4 animate-spin" />
+          ) : (
+            staticText.register.title
+          )}
+        </Button>
+      </form>
     </Form>
   );
 }
