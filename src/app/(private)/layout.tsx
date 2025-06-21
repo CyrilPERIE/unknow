@@ -10,16 +10,16 @@ export default function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { session, isPending, error } = useUser();
+  const { isPending, error, isAuthenticated } = useUser();
   const router = useRouter();
 
   useEffect(() => {
-    if (error || (!isPending && !session?.user)) {
+    if (error || (!isPending && !isAuthenticated)) {
       router.push(routes.login);
     }
-  }, [error, isPending, session, router]);
+  }, [error, isPending, isAuthenticated, router]);
 
-  if (isPending || (!isPending && !session?.user)) {
+  if (isPending || (!isPending && !isAuthenticated)) {
     return null;
   }
 
