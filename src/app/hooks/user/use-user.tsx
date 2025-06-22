@@ -8,6 +8,6 @@ export function useUser() {
     isPending,
     error,
     refetch,
-    isAuthenticated: session?.user !== null,
+    isAuthenticated: session?.user,
   };
 }
