@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const useDisclosure = (initial = false) => {
+export const useToggle = (initial = false) => {
   const [isOpen, setIsOpen] = React.useState(initial);
 
   const open = React.useCallback(() => setIsOpen(true), []);

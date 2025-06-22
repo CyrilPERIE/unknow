@@ -4,10 +4,10 @@ import staticText from "@/lib/locales/fr/static-text";
 import LoginCredentialsForm from "@/components/login/login-credentials-form";
 import PasswordResetForm from "@/components/password/password-request-password-reset-form";
 import { Button } from "@/components/ui/button";
-import { useDisclosure } from "@/components/hooks/useDisclosure";
+import { useToggle } from "@/components/hooks/use-toggle";
 
 export default function LoginPage() {
-  const { toggle, isOpen } = useDisclosure();
+  const { toggle, isOpen } = useToggle();
 
   const title = isOpen
     ? staticText.passwordForgotten.title
