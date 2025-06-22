@@ -2,24 +2,22 @@
 
 import staticText from "@/lib/locales/fr/static-text";
 import LoginCredentialsForm from "@/components/login/login-credentials-form";
-import { useState } from "react";
 import PasswordResetForm from "@/components/password/password-request-password-reset-form";
 import { Button } from "@/components/ui/button";
+import { useDisclosure } from "@/components/hooks/useDisclosure";
 
 export default function LoginPage() {
-  const [showForgotPasswordForm, setShowForgotPasswordForm] = useState(false);
+  const { toggle, isOpen } = useDisclosure();
 
-  const toggleForm = () => setShowForgotPasswordForm((prev) => !prev);
-
-  const title = showForgotPasswordForm
+  const title = isOpen
     ? staticText.passwordForgotten.title
     : staticText.login.title;
 
-  const Form = showForgotPasswordForm
+  const Form = isOpen
     ? PasswordResetForm
     : LoginCredentialsForm;
 
-  const buttonText = showForgotPasswordForm
+  const buttonText = isOpen
     ? staticText.passwordForgotten.backToLogin
     : staticText.passwordForgotten.title;
 
@@ -27,7 +25,7 @@ export default function LoginPage() {
     <div className="flex flex-col items-center justify-center h-screen max-w-96 mx-auto ">
       <h1 className="text-2xl font-bold mb-4">{title}</h1>
       <Form className="w-full" />
-      <Button onClick={toggleForm} className="w-full">
+      <Button onClick={toggle} className="w-full">
         {buttonText}
       </Button>
     </div>
