@@ -10,10 +10,10 @@ import UserCard from "@/components/user/user-card";
 import DashboardNavButton from "@/components/dashboard/dashboard-nav-button";
 
 export default function HeaderAuth() {
-  const { session, isPending, error } = useUser();
+  const { isPending, error, isAuthenticated } = useUser();
 
-  const isLoggedIn = !isPending && !error && session?.user;
-  const isNotLoggedIn = !isPending && !error && !session?.user;
+  const isLoggedIn = !isPending && !error && isAuthenticated;
+  const isNotLoggedIn = !isPending && !error && !isAuthenticated;
   return (
     <Header>
       <div>
