@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col`}
       >
         <HeaderAuth />
-        {children}
+        <main className="flex-1 overflow-y-auto">{children}</main>
         <Toaster />
       </body>
     </html>

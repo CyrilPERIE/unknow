@@ -13,5 +13,5 @@ export default function PublicLayout({
   if (isAuthenticated) {
     redirect(routes.dashboard);
   }
-  return <div>{children}</div>;
+  return <div className="h-full">{children}</div>;
 }

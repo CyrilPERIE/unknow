@@ -5,8 +5,9 @@ import LoginCredentialsForm from "@/components/login/login-credentials-form";
 import PasswordResetForm from "@/components/password/password-request-password-reset-form";
 import { Button } from "@/components/ui/button";
 import { useToggle } from "@/components/hooks/use-toggle";
+import { cn } from "@/lib/utils";
 
-export default function LoginPage() {
+export default function LoginPage({ className }: { className?: string }) {
   const { toggle, isOpen } = useToggle();
 
   const title = isOpen
@@ -22,7 +23,7 @@ export default function LoginPage() {
     : staticText.passwordForgotten.title;
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen max-w-96 mx-auto ">
+    <div className={cn(`flex flex-col items-center justify-center max-w-96 mx-auto`, className)}>
       <h1 className="text-2xl font-bold mb-4">{title}</h1>
       <Form className="w-full" />
       <Button onClick={toggle} className="w-full">

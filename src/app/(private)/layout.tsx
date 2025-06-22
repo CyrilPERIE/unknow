@@ -23,5 +23,5 @@ export default function PrivateLayout({
     return null;
   }
 
-  return <div>{children}</div>;
+  return <div className="h-full">{children}</div>;
 }
