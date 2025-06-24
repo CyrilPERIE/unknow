@@ -32,9 +32,7 @@ export async function signupCredentialsAction(
   }
   
   const userByName = await userRepository.getByName(parsedFormData.data.name);
-  console.log("userByName ", userByName.error);
   if (userByName.success) {
-    console.log("LA");
     return { error: staticText.user.errors.name_already_exists };
   }
 
