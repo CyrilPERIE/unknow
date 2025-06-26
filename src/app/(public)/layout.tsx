@@ -1,6 +1,6 @@
 "use client";
 
-import { useUser } from "@/app/hooks/user/use-user";
+import { useSession } from "@/app/hooks/user/use-session";
 import routes from "@/lib/routes/routes";
 import { redirect } from "next/navigation";
 
@@ -9,7 +9,7 @@ export default function PublicLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated } = useSession();
   if (isAuthenticated) {
     redirect(routes.dashboard);
   }

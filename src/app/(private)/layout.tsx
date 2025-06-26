@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useUser } from "@/app/hooks/user/use-user";
+import { useSession } from "@/app/hooks/user/use-session";
 import { useRouter } from "next/navigation";
 import routes from "@/lib/routes/routes";
 
@@ -10,7 +10,7 @@ export default function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isPending, error, isAuthenticated } = useUser();
+  const { isPending, error, isAuthenticated } = useSession();
   const router = useRouter();
 
   useEffect(() => {

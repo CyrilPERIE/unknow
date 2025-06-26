@@ -19,7 +19,7 @@ export const UserSchema = z.object({
     .min(1, { message: staticText.user.zod_error_messages.name_required })
     .max(20, { message: staticText.user.zod_error_messages.name_max(20)}),
   emailVerified: z.boolean().optional(),
-  image: z.string().optional(),
+  image: z.string().optional().nullable(),
 });
 
 export type UserSchemaType = z.infer<typeof UserSchema>;
